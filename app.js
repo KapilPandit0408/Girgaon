@@ -6,7 +6,7 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb://localhost/post_blog", {
+mongoose.connect("mongodb://localhost:27017/post_blog", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
