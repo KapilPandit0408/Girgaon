@@ -8,7 +8,7 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/post?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
