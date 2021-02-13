@@ -6,7 +6,7 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb://localhost/post blog", {
+mongoose.connect("mongodb://localhost/post_blog", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -15,7 +15,7 @@ mongoose.connect("mongodb://localhost/post blog", {
 );
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(express.static(__dirname + "/public/stylesheets/app.css"));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodoverride("_method"));
