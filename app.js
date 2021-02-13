@@ -1,6 +1,4 @@
 
-
-const MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser'),
 methodoverride = require("method-override"),
 expressSanitizer = require("express-sanitizer"),
@@ -8,26 +6,13 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-// mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify:false
-// })
-
-
-
-const uri = "mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-
-
-
+mongoose.connect("mongodb://localhost/post blog", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify:false
+}
+);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static(__dirname + "/public/stylesheets/app.css"));
