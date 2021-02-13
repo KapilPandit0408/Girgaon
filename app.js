@@ -1,4 +1,6 @@
 
+
+const MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser'),
 methodoverride = require("method-override"),
 expressSanitizer = require("express-sanitizer"),
@@ -6,13 +8,18 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb://localhost/festful_Post_app", {
+mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/post?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify:false
-}
-);
+})
+.then(() => console.log( 'Database Connected' ))
+.catch(err => console.log( err ));
+
+
+
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static(__dirname + "/public/stylesheets/app.css"));
