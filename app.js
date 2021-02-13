@@ -8,14 +8,22 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify:false
-})
-.then(() => console.log( 'Database Connected' ))
-.catch(err => console.log( err ));
+// mongoose.connect("mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify:false
+// })
+
+
+
+const uri = "mongodb+srv://kapil123:kapil123@cluster0.qtrdu.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 
 
