@@ -6,13 +6,24 @@ mongoose       = require('mongoose'),
 express        = require('express'),
 app            = express();
 
-mongoose.connect("mongodb://localhost:27017/post_blog", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify:false
-}
-);
+//Connection string 
+const url=process.env.MONGO_URL || "mongodb://localhost/test"
+
+
+
+
+//Db connection
+mongoose.connect(url,'mongodb://localhost:27017/test',{useNewUrlParser:true,useUnifiedTopology:true},function(err,db)
+{
+    if(err)
+    {
+        console.log(err);
+    }
+    else{
+        console.log("connected to database");
+    }
+});
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));

@@ -8,7 +8,7 @@
             <% blogs.forEach(function(blog) { %>
                 <div class="item">
                     <div class="image">
-                        <img width="20%" src="<%= blog.image %>" alt="Error">
+                        <img  src="<%= blog.image %>" alt="Error">
                     </div>
                     <div class="content">
                         <a class="header" href="/blogs/<%= blog._id %>"><%= blog.title %> </a>
@@ -21,7 +21,8 @@
                         <div class="extra">
                             <a class="ui floated basic teal button" href="/blogs/<%= blog._id %>">
                             Read More
-                            <i class="right chevron icon"></i>
+                            <i class=" ui chevron circle right icon"></i>
+                            
                             </a>
                         </div>
                     </div>
